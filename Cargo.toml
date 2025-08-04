@@ -7,7 +7,7 @@ resolver = "2"
 rust-version = "1.77"
 
 [[bin]]
-name = "mosaic_sign"
+name = "ws2812_esp32_rmt_driver_example"
 harness = false
 
 [profile.release]
