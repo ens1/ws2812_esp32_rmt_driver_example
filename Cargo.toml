@@ -1,0 +1,38 @@
+[package]
+name = "ws2812_esp32_rmt_driver_example"
+version = "0.1.0"
+authors = ["Tyler Long"]
+edition = "2021"
+resolver = "2"
+rust-version = "1.77"
+
+[[bin]]
+name = "mosaic_sign"
+harness = false
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true
+opt-level = "z"
+
+[features]
+default = []
+
+experimental = ["esp-idf-svc/experimental"]
+
+[dependencies]
+log = "0.4"
+esp-idf-svc = "0.51"
+esp-idf-sys = { version = "*", features = ["binstart"] }
+esp-idf-hal = "0.45.2"
+smart-leds = "0.4.0"
+ws2812-esp32-rmt-driver = { version = "0.12.0", features = [
+    "smart-leds-trait",
+] }
+anyhow = "1.0.98"
+
+[build-dependencies]
+embuild = "0.33"
+anyhow = "1"
